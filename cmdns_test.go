@@ -16,7 +16,7 @@ func Example() {
 	ovrclk.AddCommand(apps)
 
 	// Enable namespacing
-	cmdns.Enable(ovrclk)
+	cmdns.Namespace(ovrclk)
 
 	ovrclk.Execute()
 }
