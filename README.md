@@ -1,4 +1,4 @@
-# cmdns
+# cmdns [![GoDoc](https://godoc.org/github.com/gosuri/cmdns?status.svg)](https://godoc.org/github.com/gosuri/cmdns) [![Build Status](https://travis-ci.org/gosuri/cmdns.svg?branch=master)](https://travis-ci.org/gosuri/cmdns)
 
 cmdns is a go library for [Cobra](https://github.com/spf13/cobra) for name spacing to a command's immediate children. Command name spacing is an alternative way to structure sub commands, similar to `rake db:migrate` and `ovrclk apps:create`.
 

@@ -41,13 +41,6 @@ func main() {
 	}
 	newCmd.AddCommand(newThemeCmd)
 
-	// listCmd := &cobra.Command{Use: "list", Run: runFunc}
-	// listCmd.AddCommand(&cobra.Command{Use: "list", Run: runFunc})
-	// listCmd.AddCommand(&cobra.Command{Use: "add", Run: runFunc})
-	//hugo.AddCommand(listCmd)
-
-	cmdns.Enable(hugo)
-	if err := hugo.Execute(); err != nil {
-		panic(err)
-	}
+	cmdns.Namespace(hugo)
+	hugo.Execute()
 }
