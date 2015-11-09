@@ -1,8 +1,8 @@
 # cmdns [![GoDoc](https://godoc.org/github.com/gosuri/cmdns?status.svg)](https://godoc.org/github.com/gosuri/cmdns) [![Build Status](https://travis-ci.org/gosuri/cmdns.svg?branch=master)](https://travis-ci.org/gosuri/cmdns)
 
-cmdns is a go library for [Cobra](https://github.com/spf13/cobra) for name spacing to a command's immediate children. Command name spacing is an alternative way to structure sub commands, similar to `rake db:migrate` and `ovrclk apps:create`.
+cmdns is a go library for [Cobra](https://github.com/spf13/cobra) for name-spacing a command's immediate children. Command name-spacing is an alternative way to structure sub commands, similar to `rake db:migrate` and `ovrclk apps:create`.
 
-Cobra a popular library for creating powerful modern CLI applications used by [Kubernetes](http://kubernetes.io/), [Docker](https://github.com/docker/distribution), [Parse](https://github.com/ParsePlatform/parse-cli), and many more widely used Go projects.
+Cobra is a popular library for creating powerful modern CLI applications used by [Kubernetes](http://kubernetes.io/), [Docker](https://github.com/docker/distribution), [rkt](https://github.com/coreos/rkt), [Parse](https://github.com/ParsePlatform/parse-cli), and many more widely used Go projects.
 
 ## Rationale
 
