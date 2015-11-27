@@ -92,7 +92,7 @@ func (n *CobraNamespace) Command() *cobra.Command {
 // Namespace enables namespacing for a sub-commmand and its immediated children. It returns an error if the command does not have a parent.
 func (n *CobraNamespace) Namespace(cmd *cobra.Command) error {
 	if !cmd.HasParent() {
-		return errors.New("cmdns: command is required a parent")
+		return errors.New("cmdns: command requires a parent")
 	}
 
 	// Do not bind if there are not available sub commands
@@ -111,9 +111,8 @@ func (n *CobraNamespace) Namespace(cmd *cobra.Command) error {
 		// copy the command add it to the root command with a prefix of its parent.
 		nc := *c
 		nc.Use = cmd.Name() + ":" + c.Use
-		c.Parent().AddCommand(&nc)
-
-		// hide the command so it does not show in available commands list
+		// add this command to the root and hide it so it does not show in available commands list
+		c.Parent().Parent().AddCommand(&nc)
 		nc.Hidden = true
 		n.commands = append(n.commands, &nc)
 	}
