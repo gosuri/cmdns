@@ -131,17 +131,17 @@ func (n *CobraNamespace) UsageFunc() (f func(*cobra.Command) error) {
 	}
 }
 
-var usageTemplate = `{{$ns := .}}{{with .Command}}Usage:{{if .Runnable}}
-  {{.UseLine}}{{if .HasFlags}} [flags]{{end}}{{end}}{{if gt .Aliases 0}}
+var usageTemplate = `{{$ns := .}}{{with .Command}}Usage: {{if .Runnable}}{{.UseLine}}{{if .HasFlags}} [flags]{{end}}{{end}}{{if gt .Aliases 0}}
 
 Aliases:
   {{.NameAndAliases}}
 {{end}}{{if .HasExample}}
 
 Examples:
-{{ .Example }}{{end}}{{ if .HasAvailableSubCommands}}
+  {{ .Example }}{{end}}{{ if .HasAvailableSubCommands}}
 
-Available Commands:{{range $ns.AvailableCommands}}
+Additional commands, use "{{.Parent.CommandPath}} COMMAND --help" for more information about a command.
+{{range $ns.AvailableCommands}}
   {{rpad .Name .NamePadding }} {{.Short}}{{end}}{{end}}{{ if .HasLocalFlags}}
 
 Flags:
@@ -151,7 +151,6 @@ Global Flags:
 {{.InheritedFlags.FlagUsages | trimRightSpace}}{{end}}{{if .HasHelpSubCommands}}
 
 Additional help topics:{{range .Commands}}{{if .IsHelpCommand}}
-  {{rpad .CommandPath .CommandPathPadding}} {{.Short}}{{end}}{{end}}{{end}}{{ if .HasSubCommands }}
-
-Use "{{.Parent.CommandPath}} [command] --help" for more information about a command.{{end}}{{end}}
+  {{rpad .CommandPath .CommandPathPadding}} {{.Short}}{{end}}{{end}}{{end}}
+{{end}}
 `
