@@ -114,7 +114,7 @@ func (n *CobraNamespace) Namespace(cmd *cobra.Command) error {
 
 		// add this command to the root and hide it so it does not show in available commands list
 		c.Parent().Parent().AddCommand(&nc)
-		nc.Hidden = true
+		c.Hidden = true
 		n.commands = append(n.commands, &nc)
 	}
 	n.cmd = cmd
