@@ -11,8 +11,8 @@ var (
 	// DefaultNamespacer is the default namespacer for the package
 	DefaultNamespacer = New()
 
-	// DefaultNamespaceSeperator is the char that seperates commands
-	DefaultNamespaceSeperator = ':'
+	// DefaultNamespaceSeparator is the char that seperates commands
+	DefaultNamespaceSeparator = ":"
 )
 
 // SetOverrideUsageFunc when set to true will overide the command's usage function with the package's usage function that displays namespaces using the default namespacer
@@ -110,10 +110,11 @@ func (n *CobraNamespace) Namespace(cmd *cobra.Command) error {
 		}
 		// copy the command add it to the root command with a prefix of its parent.
 		nc := *c
-		nc.Use = cmd.Name() + ":" + c.Use
+		nc.Use = cmd.Name() + DefaultNamespaceSeparator + c.Use
+
 		// add this command to the root and hide it so it does not show in available commands list
 		c.Parent().Parent().AddCommand(&nc)
-		nc.Hidden = true
+		c.Hidden = true
 		n.commands = append(n.commands, &nc)
 	}
 	n.cmd = cmd
