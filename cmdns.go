@@ -124,7 +124,7 @@ func (n *CobraNamespace) Namespace(cmd *cobra.Command) error {
 // UsageFunc returns the usage function for the command that renders namespaces
 func (n *CobraNamespace) UsageFunc() (f func(*cobra.Command) error) {
 	return func(*cobra.Command) error {
-		err := tmpl(n.Command().Out(), usageTemplate, n)
+		err := tmpl(n.Command().OutOrStdout(), usageTemplate, n)
 		if err != nil {
 			fmt.Print(err)
 		}
