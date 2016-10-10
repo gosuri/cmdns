@@ -139,7 +139,7 @@ Aliases:
 {{end}}{{if .HasExample}}
 
 Examples:
-  {{ .Example }}{{end}}{{ if .HasAvailableSubCommands}}
+  {{ .Example }}{{end}}{{ if gt $ns.AvailableCommands 0 }}
 
 Additional commands, use "{{.Parent.CommandPath}} COMMAND --help" for more information about a command.
 {{range $ns.AvailableCommands}}

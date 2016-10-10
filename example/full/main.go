@@ -42,5 +42,6 @@ func main() {
 	newCmd.AddCommand(newThemeCmd)
 
 	cmdns.Namespace(hugo)
+	cmdns.SetOverrideUsageFunc(false)
 	hugo.Execute()
 }
